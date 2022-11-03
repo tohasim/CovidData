@@ -15,7 +15,7 @@ public class UserInterface {
 
     public void printData(ArrayList<CovidData> data){
         for (CovidData datum : data) {
-            System.out.printf("Region: %s, Aldersgruppe: %s, Bekræftede tilfælde i alt: %s, Døde: %s, Indlagte på intensiv afdeling: %s, Indlagte: %s, Dato: %s \n",
+            System.out.printf("Region: %-15s Aldersgruppe: %-15s Bekræftede tilfælde i alt: %-15s Døde: %-15s Indlagte på intensiv afdeling: %-15s Indlagte: %-15s Dato: %-15s \n",
                     datum.getRegion(),
                     datum.getAldersgruppe(),
                     datum.getBekræftedeTilfælde(),

@@ -22,9 +22,9 @@ public class Controller {
     public void startProgram() throws IOException {
         fileHandler =  new FileHandler();
         ui = new UserInterface();
-        data =  fileHandler.splitData();
         rc = new RegionComparator();
         ac = new AldersGruppeComparator();
+        data =  fileHandler.splitData();
         ui.velkommen();
         mainLoop();
     }
@@ -38,15 +38,24 @@ public class Controller {
                 Hvordan vil du gerne have dataen sorteret?\s
                 1: Efter region
                 2: Efter aldersgruppe
-                3: Afslut""");
+                3: Først efter region, så aldersgruppe
+                9: Afslut
+                """);
             int userChoice = kb.nextInt();
             switch (userChoice){
-                case 1 -> {data.sort(rc);
-                    ui.printData(data);}
-                case 2 -> {data.sort(ac);
+                case 1 -> {
+                    data.sort(rc);
                     ui.printData(data);
                 }
-                case 3 -> shouldRun = false;
+                case 2 -> {
+                    data.sort(ac);
+                    ui.printData(data);
+                }
+                case 3->{
+                    data.sort(rc.thenComparing(ac));
+                    ui.printData(data);
+                }
+                case 9 -> shouldRun = false;
             }
         }
     }
