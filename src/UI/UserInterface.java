@@ -1,8 +1,16 @@
+package UI;
+
+import FilesAndData.CovidData;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
     public UserInterface() {
+    }
+
+    public void velkommen(){
+        System.out.print("Velkommen til dataovervågningssystemet 6000!\n");
     }
 
     public void printData(ArrayList<CovidData> data){
